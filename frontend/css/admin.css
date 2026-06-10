@@ -1,0 +1,197 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 
+-------------------
+--- LEFT PANNEL ---
+-------------------
+*/
+
+.left_panel {
+  max-width: 400px;
+  height: 100vh;
+  border-right: 5px solid lightgray;
+  position: sticky;
+  top: 0;
+}
+
+#welcome_staff {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: lightseagreen;
+  padding: 5px;
+}
+
+/* 
+---------------------
+--- MIDDLE PANNEL ---
+---------------------
+*/
+
+.middle_panel {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 5px solid lightgray;
+}
+
+.page_title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: lightseagreen;
+  padding: 5px;
+}
+
+/* HEADER  */
+.header {
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+}
+
+.logo {
+  padding: 5px;
+  margin: 5px 0px;
+  width: 60px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(200, 255, 255);
+  color: lightseagreen;
+  border: none;  border-radius: 5px;
+}
+
+.search input {
+  border: 3px solid;
+  padding: 5px;
+  margin: 5px 0px;
+  width: 200px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+  background-color: rgb(200, 255, 255);
+  color: lightseagreen;
+  border: none;  border-radius: 5px;
+}
+
+.filter #filter_button {
+  border: 3px solid;
+  padding: 5px;
+  margin: 5px 0px;
+  width: 60px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(200, 255, 255);
+  color: lightseagreen;
+  border: none;  border-radius: 5px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+/* PRODUCTS */
+.products #top_title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: lightseagreen;
+  padding: 5px;
+  text-align: center;
+}
+
+.product_card {
+  display: flex;
+  flex-wrap: wrap;      /* allows title to stay on its own row */
+  align-items: center;
+  gap: 15px;
+
+  padding: 5px;
+  margin: 5px 0px;
+  border: 3px solid lightseagreen;
+  background-color: lightcyan;
+}
+
+.product_title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: lightseagreen;
+  padding: 5px;
+  margin: 5px 0px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+}
+
+.product_info {
+  height: 100px;
+  min-width: 400px;
+  background-color: rgb(239, 255, 255);
+  display: inline-block;
+  padding: 5px;
+  border: 3px solid lightseagreen;
+  border-radius: 5px;
+}
+
+.product_actions {
+  display: flex;
+  gap: 5px;
+  width: fit-content;
+}
+
+.product_details {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  border: 2px solid lightseagreen;
+  border-radius: 5px;
+}
+
+/* MORE PRODUCTS */
+.manage_products {
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.more_products {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(0, 0, 0);
+  background-color: lightcyan;
+  width: 70%;
+  padding: 5px;
+  border: 2px solid;
+  border-radius: 5px;
+}
+
+/* BUTTONS */
+button {
+  min-height: 35px;
+  width: auto;
+  margin: 5px 0px;
+  padding: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  color: gold;
+  background-color: blueviolet;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.update_product_details{
+  color: darkblue;
+  background-color: greenyellow;
+}
+
+.remove_product {
+  color: gold;
+  background-color: crimson;
+}
+
+button:hover {
+  background-color: gold;
+  color: blueviolet;
+}

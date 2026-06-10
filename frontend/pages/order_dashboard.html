@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Dashboard</title>
+    <link rel="stylesheet" href="../css/order_dashboard.css">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+
+  <body>
+    <div class="layout">
+      <aside class="left_panel">
+        <h2 id="welcome_staff">Welcome, Desk Staff</h2>
+        
+        <!-- Completed orders loaded from database -->
+        <div id="completed_orders">
+          Completed orders 
+          <ul>
+            <li>Order 1</li>
+            <li>Order 2</li>
+            <li>Order 3</li>
+          </ul>
+        </div>
+
+        <div id="view_order">
+          <a href="order_status.html" target="_blank">
+            <button>View Full Order Status</button>
+          </a>
+        </div>
+        <hr class="horizontal_lines">
+      </aside>
+
+      <main class="middle_panel">
+
+        <h1 class="page_title">Order Dashboard</h1>
+
+        <!-- Header -->
+        <div class="header">
+          <div class="logo">
+            Logo
+          </div>
+
+          <div class="search">
+            <input type="text" name="search_item" placeholder="Search Items">
+          </div>
+
+          <div class="filter">
+            <button id="filter_button">Filter</button>
+          </div>
+        </div>
+
+        <hr class="horizontal_lines">
+
+        <!-- Items to Select from (When Ordering) 
+             Actual Format -->
+
+        <!-- Products loaded from database -->
+        <div class="product_grid">
+
+          <div class="product_cards">
+            <div class="product_name">Cheese Burger</div>
+            <div class="product_img"><img src="#"></div>
+            <div class="product_price">Rs 200</div>
+          </div>
+
+          <div class="product_cards">
+            <div class="product_name">Chicken Pizza</div>
+            <div class="product_img"><img src="#"></div>
+            <div class="product_price">Rs 400</div>
+          </div>
+
+          <div class="product_cards">
+            <div class="product_name">Noodles</div>
+            <div class="product_img"><img src="#"></div>
+            <div class="product_price">Rs 150</div>
+          </div>
+
+        </div>
+
+        <!-- Items shown in a Grid format using Tables 
+             Visual Format ONLY -->
+        <!-- <table class="product_cards" border="1">
+          <tr>
+            <td class="product_name">Name</td>
+            <td class="product_name">Name</td>
+            <td class="product_name">Name</td>
+          </tr>
+          <tr>
+            <td class="product_img">Product 1</td>
+            <td class="product_img">Product 2</td>
+            <td class="product_img">Product 3</td>
+          </tr>
+          <tr>
+            <td class="product_price">Price</td>
+            <td class="product_price">Price</td>
+            <td class="product_price">Price</td>
+          </tr>
+          <tr>
+            <td class="product_name">Name</td>
+            <td class="product_name">Name</td>
+            <td class="product_name">Name</td>
+          </tr>
+          <tr>
+            <td class="product_img">Product 4</td>
+            <td class="product_img">Product 5</td>
+            <td class="product_img">Product 6</td>
+          </tr>
+          <tr>
+            <td class="product_price">Price</td>
+            <td class="product_price">Price</td>
+            <td class="product_price">Price</td>
+          </tr>
+          <tr>
+            <td class="product_name">Name</td>
+            <td class="product_name">Name</td>
+            <td class="product_name">Name</td>
+          </tr>
+          <tr>
+            <td class="product_img">Product 7</td>
+            <td class="product_img">Product 8</td>
+            <td class="product_img">Product 9</td>
+          </tr>
+          <tr>
+            <td class="product_price">Price</td>
+            <td class="product_price">Price</td>
+            <td class="product_price">Price</td>
+          </tr>
+        </table> -->
+
+        <div id="view_more">
+          <button>View More Products</button>
+        </div>
+
+        <hr class="horizontal_lines">
+
+      </main>
+
+      <!-- Currently selected product/s and their details -->
+      <aside class="right_panel">
+        <div id="selected_product">
+          <h3>CURRENTLY SELECTING</h3>
+          <div class="product_cards">
+            <div class="product_name">Name</div>
+            <div class="product_img"><img src="#"></div>
+            <div class="product_price">Price</div>
+          </div>
+        </div>
+
+        <div id="edit_product">
+          <div id="quantity">
+            Quantity
+            <button class="qty_controls">-</button>
+            <span>1</span>
+            <button class="qty_controls">+</button>
+          </div>
+
+          <div id="customise">
+            Customise
+            <div id="size">
+              Size
+              <ul>
+                <li>Small</li>
+                <li>Medium</li>
+                <li>Large</li>
+              </ul>
+            </div>
+
+            <div id="add_on">
+              Add On
+              <ul>
+                <li>Cheese</li>
+                <li>Pine</li>
+                <li>Fries</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="add_order">
+          <button>Add to Order</button>
+        </div>
+
+        <hr class="horizontal_lines">
+
+        <!-- Cart items generated dynamically -->
+        <div id="summary">
+          Summary
+          <div class="summary_items">
+
+            <h4>Item 1</h4>
+            <p>Quantity | Size | Extras</p>
+            <button class="remove_btn">Remove</button>
+
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </body>
+</html>

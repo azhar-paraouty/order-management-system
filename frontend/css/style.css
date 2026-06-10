@@ -1,0 +1,16 @@
+/* GLOBAL CSS RULES Applied Here */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.horizontal_lines {
+  margin: 3px 0px;
+  border: 3px solid lightgray;
+}
+
+body {
+  background-color: rgb(235, 254, 223);
+}

@@ -1,0 +1,265 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 
+-------------------
+--- LEFT PANNEL ---
+-------------------
+*/
+
+.left_panel {
+  max-width: 400px;
+  height: 100vh;
+  border-right: 5px solid lightgray;
+  position: sticky;
+  top: 0;
+}
+
+#welcome_staff {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: lightseagreen;
+  padding: 5px;
+}
+
+#completed_orders {
+  padding: 5px;
+  margin: 10px;
+  max-width: 300px;
+  height: 300px;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: left;
+  background-color: rgb(200, 255, 255);
+  color: lightseagreen;
+  border: none;
+  border-radius: 5px;
+}
+
+#completed_orders ul li {
+  font-size: 15px;
+  padding-left: 15px;
+  list-style-type: none;
+}
+
+#view_order {
+  position: relative;
+}
+
+/* 
+---------------------
+--- MIDDLE PANNEL ---
+---------------------
+*/
+
+.middle_panel {
+  min-width: 50%;
+  height: 100vh;
+  border-right: 5px solid lightgray;
+  overflow-y: auto;
+}
+
+.page_title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: lightseagreen;
+  padding: 5px;
+}
+
+/* HEADER  */
+.header {
+  display: flex;
+  gap: 10px;
+  justify-content: left;
+}
+
+.logo {
+  padding: 5px;
+  margin: 5px 0px;
+  width: 60px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(200, 255, 255);
+  color: lightseagreen;
+  border: none;  border-radius: 5px;
+}
+
+.search input {
+  border: 3px solid;
+  padding: 5px;
+  margin: 5px 0px;
+  width: 200px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+  background-color: rgb(200, 255, 255);
+  color: lightseagreen;
+  border: none;  border-radius: 5px;
+}
+
+.filter #filter_button {
+  border: 3px solid;
+  padding: 5px;
+  margin: 5px 0px;
+  width: 60px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(200, 255, 255);
+  color: lightseagreen;
+  border: none;  border-radius: 5px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+/* PRODUCT CARDS */
+.product_grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content:center;
+}
+
+.product_cards {
+  border: 3px solid lightseagreen;
+  width: 200px;
+  max-height: 200px; 
+}
+
+.product_cards .product_img {
+  width: 100px;
+  height: 100px;
+}
+
+.product_cards .product_name {
+  height: 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+  background-color: darkblue;
+  color: gold;
+}
+
+.product_cards .product_price {
+  height: 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+  background-color: darkblue;
+  color: gold;
+}
+
+/* 
+--------------------
+--- RIGHT PANNEL ---
+--------------------
+*/
+
+.right_panel {
+  flex: 1;
+  border-right: 5px solid lightgray;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+/* SELECTED PRODUCT */
+#selected_product {
+  display: flex;
+  align-items: center;
+}
+
+#selected_product h3 {
+  width: 150px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: lightseagreen;
+  padding: 5px;
+}
+
+#edit_product {
+  padding: 5px;
+  margin: 10px;
+  max-width: 300px;
+  height: 400px;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: left;
+  background-color: rgb(200, 255, 255);
+  color: lightseagreen;
+  border: none;
+  border-radius: 5px;
+}
+
+#edit_product #quantity {
+  padding: 0px 0px 25px 0px;;
+}
+
+#edit_product #customise ul li {
+  font-size: 15px;
+  padding-left: 15px;
+  list-style-type: none;
+}
+
+#edit_product #customise #size{
+  padding: 20px 0px;
+}
+
+/* SUMMARY */
+#summary {
+  padding: 5px;
+  margin: 10px;
+  width: 300px;
+  min-height: 300px;
+  font-weight: bold;
+  font-size: 25px;
+  background-color: rgb(200, 255, 255);
+  color: lightseagreen;
+  border: none;
+  border-radius: 5px;
+}
+
+.summary_items {
+  gap: 10px;
+  justify-content: left;
+  font-size: 15px;
+}
+
+/* BUTTONS */
+button {
+  min-height: 35px;
+  width: auto;
+  margin: 10px 5px;
+  padding: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  color: gold;
+  background-color: blueviolet;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: gold;
+  color: blueviolet;
+}
+
+#view_more, #add_order {
+  text-align: center;
+}
+
+.qty_controls {
+  font-size: 25px;
+  width: 30px;
+  height: 20px;
+}
+
+.remove_btn {
+  color: gold;
+  background-color: crimson;
+}
