@@ -22,11 +22,119 @@ Technology:
 
 * HTML
 * CSS
-* JavaScript (later in frontend phase)
+* JavaScript
 
 Goal:
 
 Create a functional frontend prototype demonstrating the complete restaurant workflow.
+
+---
+
+# Current Frontend JavaScript Roadmap
+
+## Phase 1 — Product Interaction
+
+Planned Features:
+
+* Product selection
+* Update "Currently Selecting" panel
+* Quantity controls
+* Product search (frontend only)
+
+Learning Objectives:
+
+* DOM selection
+* Event listeners
+* Dynamic updates
+
+---
+
+## Phase 2 — Cart Management
+
+Planned Features:
+
+* Add To Order
+* Remove Item
+* Dynamic Summary updates
+* Order total calculation
+
+Learning Objectives:
+
+* Arrays
+* Objects
+* Dynamic rendering
+
+---
+
+## Phase 3 — Order Creation
+
+Planned Features:
+
+* Generate fake orders
+* Assign order IDs
+* Assign timestamps
+* Store orders in JavaScript objects
+
+Example:
+
+```javascript
+{
+  orderId: 1,
+  items: [...],
+  status: "Pending"
+}
+```
+
+Learning Objectives:
+
+* Data structures
+* State management
+
+---
+
+## Phase 4 — Kitchen Workflow
+
+Planned Features:
+
+* Pending → Cooking
+* Cooking → Ready
+* Clear Order
+
+Learning Objectives:
+
+* State transitions
+* UI synchronization
+
+---
+
+## Phase 5 — Status Dashboard
+
+Planned Features:
+
+* View active orders
+* Deliver order
+* Cancel order
+* Update displayed status
+
+Learning Objectives:
+
+* Shared state
+* Workflow management
+
+---
+
+## Phase 6 — Multi-Page Simulation
+
+Planned Features:
+
+* localStorage
+* sessionStorage
+* Shared order data across pages
+
+Learning Objectives:
+
+* Client-side persistence
+* Application state
 
 ---
 
@@ -100,8 +208,9 @@ Possible Features:
 Possible Features:
 
 * MySQL database integration
-* Authentication system
+* PHP authentication
 * Session management
+* CRUD operations
 * AJAX updates
 
 ---
@@ -112,6 +221,7 @@ This project is also being used to develop skills in:
 
 * System Analysis
 * Frontend Development
+* JavaScript State Management
 * Backend Development
 * Database Design
 * Authentication & Authorization
