@@ -102,9 +102,8 @@
 .order_card {
   padding: 5px;
   margin: 5px 0;
-  min-height: 150px;
+  min-height: 100px;
   min-width: 200px;
-  max-width: 300px;
   border-radius: 10px;
   background-color: rgb(200,255,255);
   color: lightseagreen;

@@ -50,9 +50,6 @@
 
         <hr class="horizontal_lines">
 
-        <!-- Items to Select from (When Ordering) 
-             Actual Format -->
-
         <!-- Products loaded from database -->
         <div class="product_grid">
 
@@ -76,56 +73,6 @@
 
         </div>
 
-        <!-- Items shown in a Grid format using Tables 
-             Visual Format ONLY -->
-        <!-- <table class="product_cards" border="1">
-          <tr>
-            <td class="product_name">Name</td>
-            <td class="product_name">Name</td>
-            <td class="product_name">Name</td>
-          </tr>
-          <tr>
-            <td class="product_img">Product 1</td>
-            <td class="product_img">Product 2</td>
-            <td class="product_img">Product 3</td>
-          </tr>
-          <tr>
-            <td class="product_price">Price</td>
-            <td class="product_price">Price</td>
-            <td class="product_price">Price</td>
-          </tr>
-          <tr>
-            <td class="product_name">Name</td>
-            <td class="product_name">Name</td>
-            <td class="product_name">Name</td>
-          </tr>
-          <tr>
-            <td class="product_img">Product 4</td>
-            <td class="product_img">Product 5</td>
-            <td class="product_img">Product 6</td>
-          </tr>
-          <tr>
-            <td class="product_price">Price</td>
-            <td class="product_price">Price</td>
-            <td class="product_price">Price</td>
-          </tr>
-          <tr>
-            <td class="product_name">Name</td>
-            <td class="product_name">Name</td>
-            <td class="product_name">Name</td>
-          </tr>
-          <tr>
-            <td class="product_img">Product 7</td>
-            <td class="product_img">Product 8</td>
-            <td class="product_img">Product 9</td>
-          </tr>
-          <tr>
-            <td class="product_price">Price</td>
-            <td class="product_price">Price</td>
-            <td class="product_price">Price</td>
-          </tr>
-        </table> -->
-
         <div id="view_more">
           <button>View More Products</button>
         </div>
@@ -139,41 +86,47 @@
         <div id="selected_product">
           <h3>CURRENTLY SELECTING</h3>
           <div class="product_cards">
-            <div class="product_name">Name</div>
-            <div class="product_img"><img src="#"></div>
-            <div class="product_price">Price</div>
+            <div class="product_name" id="selected_name"></div>
+            <div class="product_img" id="selected_img"><img src="#"></div>
+            <div class="product_price" id="selected_price"></div>
           </div>
         </div>
 
         <div id="edit_product">
           <div id="quantity">
             Quantity
-            <button class="qty_controls">-</button>
-            <span>1</span>
-            <button class="qty_controls">+</button>
+            <button class="qty_controls" id="decrease_btn">-</button>
+            <span id="item_qty">0</span>
+            <button class="qty_controls" id="increase_btn">+</button>
           </div>
 
+          <!-- Size and Add-Ons in radio button format -->
           <div id="customise">
             Customise
-            <div id="size">
+            <div id="item_sizes">
               Size
-              <ul>
-                <li>Small</li>
-                <li>Medium</li>
-                <li>Large</li>
-              </ul>
+              <input type="radio" name="item_size" class="item_size" id="small" value="Small">
+              <label for="small">Small</label>
+
+              <input type="radio" name="item_size" class="item_size" id="medium" value="Medium">
+              <label for="medium">Medium</label>
+
+              <input type="radio" name="item_size" class="item_size" id="large" value="Large">
+              <label for="large">Large</label>
             </div>
 
-            <div id="add_on">
+            <div id="add_ons">
               Add On
-              <ul>
-                <li>Cheese</li>
-                <li>Pine</li>
-                <li>Fries</li>
-              </ul>
+              <input type="checkbox" name="add_on" class="add_on" id="cheese" value="Cheese">
+              <label for="cheese">Cheese</label>
+
+              <input type="checkbox" name="add_on" class="add_on" id="pine" value="Pine">
+              <label for="pine">Pine</label>
+
+              <input type="checkbox" name="add_on" class="add_on" id="fries" value="Fries">
+              <label for="fries">Fries</label>
             </div>
           </div>
-
         </div>
 
         <div id="add_order">
@@ -184,17 +137,19 @@
 
         <!-- Cart items generated dynamically -->
         <div id="summary">
-          Summary
-          <div class="summary_items">
-
-            <h4>Item 1</h4>
-            <p>Quantity | Size | Extras</p>
-            <button class="remove_btn">Remove</button>
-
+          <h2>Summary</h2>
+          <div id="total_cost">
+            Total: Rs 0
           </div>
+        </div>
+
+        <div id="confirm_order">
+          <button>Confirm Order</button>
         </div>
 
       </aside>
     </div>
+
+    <script type="text/javascript" src="../js/order_dashboard.js"></script>
   </body>
 </html>

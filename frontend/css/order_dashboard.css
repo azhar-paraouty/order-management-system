@@ -127,7 +127,8 @@
 .product_cards {
   border: 3px solid lightseagreen;
   width: 200px;
-  max-height: 200px; 
+  height: 200px; 
+  cursor: pointer;
 }
 
 .product_cards .product_img {
@@ -183,7 +184,7 @@
 #edit_product {
   padding: 5px;
   margin: 10px;
-  max-width: 300px;
+  max-width: 350px;
   height: 400px;
   font-weight: bold;
   font-size: 25px;
@@ -198,13 +199,13 @@
   padding: 0px 0px 25px 0px;;
 }
 
-#edit_product #customise ul li {
+#edit_product #customise label {
   font-size: 15px;
-  padding-left: 15px;
-  list-style-type: none;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
-#edit_product #customise #size{
+#edit_product #customise #item_sizes{
   padding: 20px 0px;
 }
 
@@ -212,20 +213,26 @@
 #summary {
   padding: 5px;
   margin: 10px;
-  width: 300px;
-  min-height: 300px;
+  max-width: 600px;
+  max-height: 400px;
   font-weight: bold;
   font-size: 25px;
   background-color: rgb(200, 255, 255);
   color: lightseagreen;
   border: none;
   border-radius: 5px;
+  overflow-y: scroll;
 }
 
 .summary_items {
   gap: 10px;
+  margin: 10px 0px;
+  padding: 5px;
   justify-content: left;
-  font-size: 15px;
+  font-size: 20px;
+  border: 2px;
+  border-radius: 10px;
+  background-color: rgb(239, 255, 255);
 }
 
 /* BUTTONS */
@@ -249,8 +256,12 @@ button:hover {
   color: blueviolet;
 }
 
-#view_more, #add_order {
+#view_more {
   text-align: center;
+}
+
+#add_order, #confirm_order {
+  text-align: left;
 }
 
 .qty_controls {

@@ -35,19 +35,14 @@
 
         <!-- Orders and their current states -->
         <section class="orders">
-
+          <!-- To be replaced with dyanmically created JS cards -->
           <div class="order_row">
             <div class="order_card">
               <h3>Order #001</h3>
               <p>Customer: John</p>
               <p>3 Items</p>
-              <p>Status:</p>
-              <div class="states">
-                <span>Pending</span>
-                <span>Cooking</span>
-                <span>Ready</span>
-                <span>Delivered</span>
-              </div>
+              <!-- Status: Pending/Cooking/Ready/Delivered/Cancelled -->
+              <p class="order_status">Status: </p>
             </div>
 
             <div class="order_options">
@@ -63,13 +58,8 @@
               <h3>Order #002</h3>
               <p>Customer: Sarah</p>
               <p>2 Items</p>
-              <p>Status:</p>
-              <div class="states">
-                <span>Pending</span>
-                <span>Cooking</span>
-                <span>Ready</span>
-                <span>Delivered</span>
-              </div>
+              <!-- Status: Pending/Cooking/Ready/Delivered/Cancelled -->
+              <p class="order_status">Status:</p>
             </div>
 
             <div class="order_options">
@@ -83,5 +73,6 @@
         </section>
       </main>
     </div>
+    <script type="text/javascript" src="../js/order_status.js"></script>
   </body>
 </html>
