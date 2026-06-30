@@ -8,7 +8,7 @@ Items listed here are not necessarily part of the current version.
 
 ---
 
-# Version 1 Scope
+# Main Version Scope
 
 Focus Areas:
 
@@ -23,118 +23,132 @@ Technology:
 * HTML
 * CSS
 * JavaScript
+* PHP
+* MySQL
 
 Goal:
 
-Create a functional frontend prototype demonstrating the complete restaurant workflow.
+Create a functional full-stack restaurant order management system demonstrating the complete operational workflow.
 
 ---
 
-# Current Frontend JavaScript Roadmap
+# BACKEND PLANNING
 
-## Phase 1 — Product Interaction
+## Backend Requirements
 
 Planned Features:
 
-* Product selection
-* Update "Currently Selecting" panel
-* Quantity controls
-* Product search (frontend only)
-
-Learning Objectives:
-
-* DOM selection
-* Event listeners
-* Dynamic updates
+* Logout functionality
+* Search functionality
+* Filter functionality
+* Dynamic database retrieval
+* Authentication
+* Role authorization
+* Session management
+* Business rule enforcement
 
 ---
 
-## Phase 2 — Cart Management
+## Database Design
 
-Planned Features:
+Planned Tables:
 
-* Add To Order
-* Remove Item
-* Dynamic Summary updates
-* Order total calculation
-
-Learning Objectives:
-
-* Arrays
-* Objects
-* Dynamic rendering
+* users
+* products
+* orders
+* order_items
 
 ---
 
-## Phase 3 — Order Creation
+## Backend Architecture Planning
 
-Planned Features:
+Planning Areas:
 
-* Generate fake orders
-* Assign order IDs
-* Assign timestamps
-* Store orders in JavaScript objects
-
-Example:
-
-```javascript
-{
-  orderId: 1,
-  items: [...],
-  status: "Pending"
-}
-```
-
-Learning Objectives:
-
-* Data structures
-* State management
+* Page responsibilities
+* Database responsibilities
+* PHP file organization
+* Folder structure
+* Data flow between pages
 
 ---
 
-## Phase 4 — Kitchen Workflow
+# BACKEND INTEGRATION
+
+## Authentication
 
 Planned Features:
 
-* Pending → Cooking
-* Cooking → Ready
-* Clear Order
-
-Learning Objectives:
-
-* State transitions
-* UI synchronization
+* Login
+* Logout
+* Sessions
+* Role authorization
+* Protected pages
 
 ---
 
-## Phase 5 — Status Dashboard
+## Product Management
 
 Planned Features:
 
-* View active orders
-* Deliver order
-* Cancel order
-* Update displayed status
-
-Learning Objectives:
-
-* Shared state
-* Workflow management
+* Read products
+* Create products
+* Update products
+* Delete products
+* Product search
+* Product filtering
 
 ---
 
-## Phase 6 — Multi-Page Simulation
+## Order Management
 
 Planned Features:
 
-* localStorage
-* sessionStorage
-* Shared order data across pages
+* Create orders
+* Store order items
+* Generate timestamps
+* Display completed orders
+* Dynamic product loading
 
-Learning Objectives:
+---
 
-* Client-side persistence
-* Application state
+## Kitchen Queue
+
+Planned Features:
+
+* Display pending orders
+* Update cooking status
+* Update ready status
+* Clear completed orders
+
+---
+
+## Order Status
+
+Planned Features:
+
+* Display active orders
+* Deliver orders
+* Cancel orders
+* Synchronize order status across the system
+
+---
+
+## Database Integration
+
+Planned Features:
+
+* Replace hardcoded data
+* Read data from MySQL
+* Update database records
+* Maintain persistent application state
+
+---
+
+## Testing
+
+Goal:
+
+Verify that all frontend and backend components work together as a complete restaurant management system.
 
 ---
 
@@ -162,26 +176,6 @@ Possible Features:
 
 ---
 
-## Inventory Management
-
-Possible Features:
-
-* Ingredient tracking
-* Stock levels
-* Low stock alerts
-
----
-
-## Notifications
-
-Possible Features:
-
-* Ready order alerts
-* Visual notifications
-* Sound notifications
-
----
-
 ## Enhanced Search
 
 Possible Features:
@@ -198,36 +192,29 @@ Possible Features:
 
 * Improved styling
 * Better responsiveness
-* Mobile support
 * Accessibility improvements
 
 ---
 
-## Backend Features
+## Backend Enhancements
 
 Possible Features:
 
-* MySQL database integration
-* PHP authentication
-* Session management
-* CRUD operations
-* AJAX updates
+* AJAX updates (example: Display Top Selling Products first in Order Dashboard page)
+* Improved validation
+* Performance optimization
+* API integration
 
 ---
 
-# Long-Term Learning Goals
+## Architecture Changes
 
-This project is also being used to develop skills in:
+Possible Features:
 
-* System Analysis
-* Frontend Development
-* JavaScript State Management
-* Backend Development
-* Database Design
-* Authentication & Authorization
-* CRUD Operations
-* Full Stack Development
-* Software Project Documentation
+* Refactor codes
+* Meaningful comments throughout
+* Use of functions
+* Write Simpler codes
 
 ---
 
@@ -236,6 +223,6 @@ This project is also being used to develop skills in:
 Features should only move from this roadmap into active development when:
 
 1. Requirements are clearly defined
-2. Wireframes exist
+2. Database design has been completed
 3. Current phase is stable
 4. The feature supports project learning objectives

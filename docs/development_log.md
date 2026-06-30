@@ -59,7 +59,7 @@ Created wireframes for:
 * Product Management Page
 * Kitchen Queue Page
 * Order Dashboard Page
-* Status Dashboard Page
+* Order Status Page
 
 ### Purpose
 
@@ -79,7 +79,7 @@ Pages Completed:
 * Product Management Page
 * Kitchen Queue Page
 * Order Dashboard Page
-* Status Dashboard Page
+* Order Status Page
 
 ### CSS Layout Implemented
 
@@ -101,6 +101,31 @@ The project now has a complete static frontend prototype.
 Users can visually navigate the system and understand the intended workflow.
 
 No business logic or data persistence has been implemented yet.
+
+---
+
+# 2026-06-26
+
+## JavaScript Frontend Prototype Completed
+
+Implemented the initial frontend behaviour using JavaScript.
+
+Completed:
+
+* Product selection
+* Quantity controls
+* Order Summary management
+* Dynamic Total calculation
+* Fake order creation
+* Kitchen queue state transitions
+* Order status updates
+* Frontend-only state management
+
+### Key Outcome
+
+The application now simulates the complete restaurant workflow using frontend technologies only.
+
+All data remains temporary and hardcoded, providing a foundation for backend integration.
 
 ---
 
@@ -130,7 +155,7 @@ The restaurant is assumed to be a small business where accounts are managed dire
 
 ---
 
-## Separate Kitchen Queue and Status Dashboard
+## Separate Kitchen Queue and Order Status
 
 Decision:
 
@@ -161,19 +186,7 @@ Build frontend before backend.
 
 Reason:
 
-Validate workflows, layout, navigation and usability before introducing PHP, MySQL and AJAX.
-
----
-
-## Simple Initial Architecture
-
-Decision:
-
-Start with HTML and CSS only.
-
-Reason:
-
-Focus on structure and page layout before implementing interactivity and business logic.
+Validate workflows, layout, navigation and usability before introducing PHP and MySQL.
 
 ---
 
@@ -181,19 +194,23 @@ Focus on structure and page layout before implementing interactivity and busines
 
 Decision:
 
-Implement frontend state management before introducing backend technologies.
+Complete frontend interactions before implementing persistent storage.
 
 Reason:
 
-Allows learning:
+Allowed the project workflow to be validated before introducing server-side technologies.
 
-* DOM manipulation
-* Event handling
-* Arrays and objects
-* State management
-* Dynamic UI updates
+---
 
-before introducing databases and server-side logic.
+## Backend Integration Strategy
+
+Decision:
+
+Introduce PHP and MySQL together rather than exploiting each technology in isolation.
+
+Reason:
+
+The objective is to build a realistic full-stack workflow where PHP interacts directly with the database.
 
 ---
 
@@ -207,17 +224,18 @@ before introducing databases and server-side logic.
 * Initial Project Structure
 * HTML Structure
 * CSS Layout
+* JavaScript Frontend Prototype
+* Backend Planning
+* Database Design
 
 ## In Progress
 
-* Frontend JavaScript Development
+* Backend Architecture Planning
+* PHP Integration
+* Authentication
+* CRUD Operations
+* Database Integration
 
 ## Upcoming
 
-* Product Selection Logic
-* Order Cart Logic
-* Kitchen Queue State Logic
-* Frontend State Management
-* Frontend Prototype Completion
-* Backend Planning
-* Backend Integration
+* System Testing
