@@ -129,6 +129,27 @@ All data remains temporary and hardcoded, providing a foundation for backend int
 
 ---
 
+# 2026-07-08
+
+## Begin with inital PHP structure
+
+Focus was on Authentication and Login page.
+
+Completed:
+
+* User Authentication for Usernames and Passwords.
+* Use of password hashing to make password unreadable.
+* Established succesful connection with the Maria Database.
+* Logout Button was added for all major web pages.
+
+### Key Outcome
+
+Users now have to enter the appropriate credentials to access a protected page.
+
+The system retain the User's info for for a particular session.
+
+---
+
 # Design Decisions
 
 ## Internal Staff System

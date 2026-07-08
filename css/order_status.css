@@ -87,6 +87,17 @@
   cursor: pointer;
 }
 
+.logout a {
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: lightseagreen;
+  color:rgb(200, 255, 255);
+  border: none;  border-radius: 5px;
+  text-decoration: none;
+}
+
 /* PRODUCT STATUS CARDS */
 .order_row {
   display: flex;

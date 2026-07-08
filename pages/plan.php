@@ -44,11 +44,12 @@ B. PHP REQUIREMENTS
 - Add Logout Button
 - Header Search Functionality
 - Filter Button
-- Dynamically fetc data from DB and NOT Hardcoded (anymore)
+- Dynamically fetch data from DB and NOT Hardcoded (anymore)
 - Enforce Business and Security Rules (wherever possible)
 
 2. login.php (Authentication)
 - Users log in and can access respective pages (Authorization)
+- Hash user passwords
 - At this point, use session_start()
 - Use of isset(), to protect random access to web pages.
 

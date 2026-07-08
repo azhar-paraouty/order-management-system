@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+  header("Location: login.php");
+  exit();
+}
+
+if ($_SESSION['user_role'] != "kitchen") {
+  header("Location: login.php");
+  exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,6 +43,10 @@
 
           <div class="filter">
             <button id="filter_button">Filter</button>
+          </div>
+
+          <div class="logout">
+            <a href="logout.php">Logout</a>
           </div>
         </div>
 

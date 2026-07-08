@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+  header("Location: login.php");
+  exit();
+}
+
+if ($_SESSION['user_role'] != "desk") {
+  header("Location: login.php");
+  exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,7 +37,7 @@
         </div>
 
         <div id="view_order">
-          <a href="order_status.html" target="_blank">
+          <a href="order_status.php" target="_blank">
             <button>View Full Order Status</button>
           </a>
         </div>
@@ -45,6 +60,10 @@
 
           <div class="filter">
             <button id="filter_button">Filter</button>
+          </div>
+
+          <div class="logout">
+            <a href="logout.php">Logout</a>
           </div>
         </div>
 
