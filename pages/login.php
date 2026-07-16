@@ -8,14 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $uname = $_POST['username'];
   $pword = $_POST['password'];
 
-  // Database parameters
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "island_bites";
-
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
+  require "../database/configuration.php";
 
   // Query to fetch Users
   $sql = "SELECT * FROM users 

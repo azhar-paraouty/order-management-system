@@ -150,6 +150,28 @@ The system retain the User's info for for a particular session.
 
 ---
 
+# 2026-07-16
+
+## CRUD Operations for Admin Page
+
+Completed:
+
+* Added Initial Product data (using /island_bites.sql), with their respective images
+* Show 5 Additional products on screen when clicking on 'View More Products'.
+* Delete a product (from database) when 'REMOVE' Button is clicked. 
+* Display a Product Entry or Modification form respectively, when:
+  'Create New Products' or 'UPDATE' Buttons are clicked.
+* Simplified the Database Setup (using /configurations.php)
+
+
+### Key Outcome
+
+The Admin can now Create, Update, Delete and View More Products, all from a User Friendly UI.
+
+This allows for seperation of duties between Page Admin and Database Administrator.
+
+---
+
 # Design Decisions
 
 ## Internal Staff System
