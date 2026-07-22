@@ -88,7 +88,7 @@ if ($_SESSION['user_role'] != "admin") {
 
           $result = mysqli_query($conn, $sql);
           if (!$result) {
-            $error_message = "No products have been supplied.";
+            $error_message = "No product was found.";
           }
 
           while ($row = mysqli_fetch_array($result)) {
@@ -154,7 +154,7 @@ if ($_SESSION['user_role'] != "admin") {
 
             $result = mysqli_query($conn, $sql);
             if (!$result) {
-              $error_message = "No products have been supplied.";
+              $error_message = "No product category exists yet.";
             }
 
             while ($row = mysqli_fetch_array($result)) {
@@ -211,7 +211,7 @@ if ($_SESSION['user_role'] != "admin") {
 
             $result = mysqli_query($conn, $sql);
             if (!$result) {
-              $error_message = "No products have been supplied.";
+              $error_message = "The product with ID: $productID was NOT found.";
             }
 
             while ($row = mysqli_fetch_array($result)) {
@@ -243,7 +243,7 @@ if ($_SESSION['user_role'] != "admin") {
 
             $result = mysqli_query($conn, $sql);
             if (!$result) {
-              $error_message = "No products have been supplied.";
+              $error_message = "No product category exists yet.";
             }
 
             while ($row = mysqli_fetch_array($result)) {
@@ -310,7 +310,7 @@ if ($_SESSION['user_role'] != "admin") {
 
             $result = mysqli_query($conn, $sql);
             if (!$result) {
-              $error_message = "No products have been supplied.";
+              $error_message = "The product with ID: $productID was NOT found.";
             }
 
             while ($row = mysqli_fetch_array($result)) {

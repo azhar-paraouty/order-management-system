@@ -69,8 +69,8 @@ B. PHP REQUIREMENTS
 - View More Products/Create New Products -> Need to be under the Table
 
 4. order_dashboard.php
-- Update the Left Panel (Completed Orders) each time an Order is 'Delivered'
-- Update the Status of a completed order to 'Delivered' of order_status.php 
+- Update the Left Panel (Completed Orders) each time an Order is 'Ready'
+- Then, Desk Staff can update the Status of a completed order to 'Delivered' of order_status.php 
 
 - Fetch Products directly from Database 
 - Display 9 products at a time?

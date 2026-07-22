@@ -2,17 +2,22 @@
 
 // -------------------------------------------------------------------------------
 
+let pID = "";
+
 // SELECT AN ITEM FROM THE 'PRODUCT GRID'
-const products = document.querySelectorAll(".product_cards");
+const products = document.querySelectorAll(".product_grid .product_cards");
 
 // Item appears in the 'CURRENTLY SELECTING' Panel
 products.forEach((product) => {
   product.addEventListener("click", function() {
+    // Accessing the ID of the Product to SELECT
+    pID = this.dataset.productId;
+
     const name = this.querySelector(".product_name").textContent;
     document.getElementById("selected_name").textContent = name;
 
-    const img = this.querySelector(".product_img").src;
-    document.getElementById("selected_img").src = img;
+    const img = this.querySelector(".product_img").innerHTML;
+    document.getElementById("selected_img").innerHTML = img;
 
     const price = this.querySelector(".product_price").textContent;
     document.getElementById("selected_price").textContent = price;
@@ -74,6 +79,8 @@ document.getElementById("add_order").addEventListener("click", () => {
 
   // Store Item data in an Array (JSON)
   const currentItem = {
+    // Item image may need to be added (⚠️LATER IMPLEMENTATION)
+    productID: pID,
     name: document.getElementById("selected_name").textContent,
     price: document.getElementById("selected_price").textContent,
     quantity: document.getElementById("item_qty").textContent,
@@ -217,14 +224,32 @@ document.getElementById("confirm_order").addEventListener("click", () => {
   });
 
   const confirmedOrder = {
-    timestamp: new Date(),
     items: activeItems
   };
-
   console.log(confirmedOrder);
 
-  // ⚠️LATER IMPLEMENTATION: Supply 'activeItems' and Timestamp to 'Pending Order' row of 'Kitchen Queue' page. (using PHP?)
+  const orderJSON = JSON.stringify(confirmedOrder);
+  console.log(orderJSON);
 
+  // Use AJAX or any industry-standard practice to send/fetch order data (⚠️LATER IMPLEMENTATION)
+  window.location.href = "../php/confirm_order.php?order=" + encodeURIComponent(orderJSON);
+
+  /*
+  ORDER ITEMS STRUCTURE
+
+  {
+    "items":
+    [
+      {"name":"Chicken Burger",
+      "price":"Rs 225.00",
+      "quantity":"1",
+      "size":"Medium",
+      "addOns":"None",
+      "removed":false}
+    ]
+  }
+
+  */
 });
 
 // -------------------------------------------------------------------------------

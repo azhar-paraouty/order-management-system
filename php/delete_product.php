@@ -3,12 +3,12 @@
 session_start();
 
 if (!isset($_SESSION['username'])) {
-  header("Location: login.php");
+  header("Location: ../pages/login.php");
   exit();
 }
 
 if ($_SESSION['user_role'] != "admin") {
-  header("Location: login.php");
+  header("Location: ../pages/login.php");
   exit();
 }
 
@@ -25,7 +25,7 @@ $sql = "DELETE FROM products
 
 $result = mysqli_query($conn, $sql);
 if (!$result) {
-  $error_message = "This Product does NOT exist!.";
+  $error_message = "Product could NOT be deleted!.";
 } 
 
 // Redirect back

@@ -28,12 +28,37 @@ if ($_SESSION['user_role'] != "desk") {
         
         <!-- Completed orders loaded from database -->
         <div id="completed_orders">
-          Completed orders 
-          <ul>
-            <li>Order 1</li>
-            <li>Order 2</li>
-            <li>Order 3</li>
-          </ul>
+          Orders Ready for Delivery
+          <?php
+
+          require "../database/configuration.php";
+
+          // Query to fetch Completed Orders (awaiting Delivery)
+          $sql = "SELECT * 
+                  FROM `orders`
+                  WHERE status = 'ready'
+                  AND DATE(created_at)=CURDATE()
+                  ORDER BY updated_at DESC;"; 
+                  // LIMIT to ONLY display recent completed orders (⚠️LATER IMPLEMENTATION)
+
+          $result = mysqli_query($conn, $sql);
+          if (!$result) {
+            $error_message = "No Order was found.";
+          } 
+
+          while ($row = mysqli_fetch_array($result)) {
+            // Individual Order data
+            $order_id = $row['o_id'];
+            $ready_at = date("H:i:s", strtotime($row['updated_at']));
+          ?>
+            <!-- Populating each Order Item Card -->
+             <div class="ready_card">
+                <?php echo 'Order #' . $order_id . '<br>'; ?>
+                <?php echo 'Ready At: ' . $ready_at; ?>
+              </div>
+          <?php
+          };
+          ?>
         </div>
 
         <div id="view_order">
@@ -71,30 +96,63 @@ if ($_SESSION['user_role'] != "desk") {
 
         <!-- Products loaded from database -->
         <div class="product_grid">
+          
+          <?php
+          // Product image path
+          $imagePath = "../images/products/"; 
 
-          <div class="product_cards">
-            <div class="product_name">Cheese Burger</div>
-            <div class="product_img"><img src="#"></div>
-            <div class="product_price">Rs 200</div>
-          </div>
+          // Fetch 'view more' request count
+          if (isset($_GET['page'])) {
+            $page_count = $_GET['page'];
+          } else {
+            $page_count = 1;
+          }
 
-          <div class="product_cards">
-            <div class="product_name">Chicken Pizza</div>
-            <div class="product_img"><img src="#"></div>
-            <div class="product_price">Rs 400</div>
-          </div>
+          // To set Initial Limit to 9 instead. Then +5 each time (⚠️LATER IMPLEMENTATION)
 
-          <div class="product_cards">
-            <div class="product_name">Noodles</div>
-            <div class="product_img"><img src="#"></div>
-            <div class="product_price">Rs 150</div>
-          </div>
+          // Calculate the new limit
+          $limit = $page_count * 5;
+
+          require "../database/configuration.php";
+
+          // Query to fetch Products
+          $sql = "SELECT * FROM products
+                  LIMIT $limit";
+
+          $result = mysqli_query($conn, $sql);
+          if (!$result) {
+            $error_message = "No product was found.";
+          } 
+
+          while ($row = mysqli_fetch_array($result)) {
+            // Individual Product data
+            $product_id = $row['p_id'];
+            $product_name = $row['name'];
+            $product_price = $row['price'];
+            $product_image = $row['image'];
+            $product_category = $row['category']; 
+          ?>
+            <!-- Populating each Product Card -->
+            <div class="product_cards" data-product-id="<?php echo $product_id; ?>">
+              <div class="product_name"><?php echo $product_name ?></div>
+              <div class="product_img"><img src="<?php echo $imagePath . $product_image ?>"></div>
+              <div class="product_price">Rs <?php echo $product_price ?></div>
+            </div>
+          <?php
+          };
+          ?>
 
         </div>
 
-        <div id="view_more">
-          <button>View More Products</button>
-        </div>
+        <?php
+          $nextPage = $page_count + 1;
+        ?>
+
+        <a href="order_dashboard.php?page=<?php echo $nextPage; ?>">
+          <div class="view_more">
+            <button>View More Products</button>
+          </div>
+        </a>
 
         <hr class="horizontal_lines">
 
@@ -162,9 +220,7 @@ if ($_SESSION['user_role'] != "desk") {
           </div>
         </div>
 
-        <div id="confirm_order">
-          <button>Confirm Order</button>
-        </div>
+        <button id="confirm_order">Confirm Order</button>
 
       </aside>
     </div>

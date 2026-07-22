@@ -172,6 +172,27 @@ This allows for seperation of duties between Page Admin and Database Administrat
 
 ---
 
+# 2026-07-22
+
+## Create Orders for Items in Order Dashboard Page
+
+Completed:
+* Fetch Products directly from Database.
+* Display 5 products at a time.
+* View More Products Button: To display subsequent Products from Database.
+* When 'Confirm Order' is clicked: Create the Order and Store Order Items data in Database.
+* Upated Left Panel to reflect 'Completed Orders' ready to be delivered.
+
+
+### Key Outcome
+
+The Desk Staff can now Create Orders for the Customer based on available Products.
+
+When the Order is 'Ready', the Staff can see it from the Left Panel.
+
+---
+
+
 # Design Decisions
 
 ## Internal Staff System
