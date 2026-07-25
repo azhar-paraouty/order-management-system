@@ -192,6 +192,27 @@ When the Order is 'Ready', the Staff can see it from the Left Panel.
 
 ---
 
+# 2026-07-25
+
+## Processing Order Cards in Kitchen Queue Page
+
+Completed:
+* Fetch Orders directly from Database, right when they are created (pending state). 
+* For each order, display the time it was updated/created and Order Items.
+* Display 3 orders at a time, and increment by 3 each time.
+* More Orders Button: To display subsequent Orders from Database. Modified to function like a Button instead.
+* Clicking on 'COOK' updates the Order state from 'Pending' to 'Cooking'
+* Clicking on 'READY' updates the Order state from 'Cooking' to 'Ready'
+* Clicking on 'CLEAR', ONLY possible when the Status of the Order Status is 'Delivered' OR 'Cancelled'
+
+
+### Key Outcome
+
+The Kitchen Staff can now clearly see each Order, and its current status.
+
+This ensures that Orders having priority are cooked and prepared first.
+
+---
 
 # Design Decisions
 

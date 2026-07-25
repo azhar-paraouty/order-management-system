@@ -1,157 +1,79 @@
 // -------------------------------------------------------------------------------
 
-// Integrate PHP (⚠️LATER IMPLEMENTATION) to Create 'Pending Order' Card from 'Order Dashboard' Page data.
-
-// The code is NOT actaully moving the cards from one state to another.
-// But is actually creating NEW card.
-// This needs to be investigated.
-
-// -------------------------------------------------------------------------------
-
-createPendingOrderCard();
-
-// CREATE PENDING ORDER CARD (will require PHP?)
-
-function createPendingOrderCard() {
-  const orderRows = document.querySelectorAll(".order_row");
-  const pendingRow = orderRows[0];
-
-  const orderCard = document.createElement("div");
-  orderCard.className = "order_card";
-
-  const orderNumber = document.createElement("h3");
-  orderNumber.textContent = "TEST ORDER"; // WORK IN PROGRESS
-
-  const orderCreated = document.createElement("p");
-  orderCreated.textContent = `Created: ${new Date().toLocaleTimeString()}`; // Get Time from 'Order Dashboard' Page
-
-  const orderItems = document.createElement("p");
-  orderItems.textContent = "Test Items"; // WORK IN PROGRESS
-
-  const cookButton = document.createElement("button");
-  cookButton.className = "cook_btn";
-  cookButton.textContent = "COOK";
-
-  // Add Elements to the Order Card of 'Pending Orders' Section
-  orderCard.prepend(cookButton);
-
-  orderCard.prepend(orderItems);
-  orderCard.prepend(orderCreated);
-  orderCard.prepend(orderNumber);
-
-  pendingRow.prepend(orderCard);
-
-  console.log(pendingRow);
-};
-
-// -------------------------------------------------------------------------------
-
-// STAFF CLICKS ON 'COOK'
+// KITCHEN STAFF CLICKS ON 'COOK' Button
 
 const cookOrder = document.querySelectorAll(".cook_btn");
 
+// Update the Status of the Order to 'Cooking', when 'COOK' Button is clicked
 cookOrder.forEach((order) => {
-  order.addEventListener("click", function () {
+  order.addEventListener("click", function () {   
 
-    const orderRows = document.querySelectorAll(".order_row");
-    const cookingRow = orderRows[1];
+    // Fetch the Order ID associated with it
+    const rows = this.closest(".order_card");
+    const order = rows.querySelector("h3").textContent;
+    console.log(order);
 
-    const orderCard = createCookCard();
+    const orderJSON = JSON.stringify(order);
+    console.log(orderJSON)
 
-    const orderNumber = document.createElement("h3");
-    orderNumber.textContent = "TEST ORDER"; // WORK IN PROGRESS
-
-    const orderStart = document.createElement("p");
-    orderStart.textContent = `Started Cooking: ${new Date().toLocaleTimeString()}`;
-
-    const orderItems = document.createElement("p");
-    orderItems.textContent = "Test Items"; // WORK IN PROGRESS
-
-    // Add Elements to the Order Card of 'Cooking' Section
-    orderCard.prepend(orderItems);
-    orderCard.prepend(orderStart);
-    orderCard.prepend(orderNumber);
-
-    cookingRow.prepend(orderCard);
+    // Use AJAX or any industry-standard practice to send/fetch order data (⚠️LATER IMPLEMENTATION)
+    window.location.href = "../php/cook_order.php?order=" + encodeURIComponent(orderJSON);
 
     console.log("Moved to Cooking");
-    console.log(cookingRow)
 
   });
 });
 
 // -------------------------------------------------------------------------------
 
-// CREATE COOK CARD
+// KITCHEN STAFF CLICKS ON 'READY' Button
 
-function createCookCard() {
+const readyOrder = document.querySelectorAll(".ready_btn");
 
-  const orderCard = document.createElement("div");
-  orderCard.className = "order_card";
+// Update the Status of the Order to 'Ready', when 'READY' Button is clicked
+readyOrder.forEach((order) => {
+  order.addEventListener("click", function () {   
 
-  // Create 'READY' Button for 'Cooking' Section
-  const readyButton = document.createElement("button");
-  readyButton.className = "ready_btn";
-  readyButton.textContent = "READY";
+    // Fetch the Order ID associated with it
+    const rows = this.closest(".order_card");
+    const order = rows.querySelector("h3").textContent;
+    console.log(order);
 
-  orderCard.appendChild(readyButton);
+    const orderJSON = JSON.stringify(order);
+    console.log(orderJSON)
 
-  readyButton.addEventListener("click", function () {
-
-    const orderRows = document.querySelectorAll(".order_row");
-    const readyRow = orderRows[2];
-
-    const readyCard = createClearCard();
-
-    const orderNumber = document.createElement("h3");
-    orderNumber.textContent = "TEST ORDER"; // WORK IN PROGRESS
-
-    const orderFinish = document.createElement("p");
-    orderFinish.textContent = `Ready: ${new Date().toLocaleTimeString()}`;
-
-    const orderItems = document.createElement("p");
-    orderItems.textContent = "Test Items"; // WORK IN PROGRESS
-
-    // Add Elements to the Order Card of 'Ready' Section
-    readyCard.prepend(orderItems);
-    readyCard.prepend(orderFinish);
-    readyCard.prepend(orderNumber);
-
-    readyRow.prepend(readyCard);
+    // Use AJAX or any industry-standard practice to send/fetch order data (⚠️LATER IMPLEMENTATION)
+    window.location.href = "../php/ready_order.php?order=" + encodeURIComponent(orderJSON);
 
     console.log("Moved to Ready");
-    console.log(readyRow)
 
   });
-
-  return orderCard;
-}
+});
 
 // -------------------------------------------------------------------------------
 
-// CREATE CLEAR CARD
+// KITCHEN STAFF CLICKS ON 'CLEAR' Button
 
-function createClearCard() {
+const clearOrder = document.querySelectorAll(".clear_btn");
 
-  const readyCard = document.createElement("div");
-  readyCard.className = "order_card";
+// Check if the Status of the Order is set to 'Delivered'/'Canclled', when 'CLEAR' Button is clicked
+clearOrder.forEach((order) => {
+  order.addEventListener("click", function () {   
 
-  // Create 'CLEAR' Button for 'Ready' Section
-  const clearButton = document.createElement("button");
-  clearButton.className = "clear_btn";
-  clearButton.textContent = "CLEAR";
+    // Fetch the Order ID associated with it
+    const rows = this.closest(".order_card");
+    const order = rows.querySelector("h3").textContent;
+    console.log(order);
 
-  readyCard.appendChild(clearButton);
+    const orderJSON = JSON.stringify(order);
+    console.log(orderJSON)
 
-  clearButton.addEventListener("click", function () {
+    // Use AJAX or any industry-standard practice to send/fetch order data (⚠️LATER IMPLEMENTATION)
+    window.location.href = "../php/clear_order.php?order=" + encodeURIComponent(orderJSON);
 
-    readyCard.remove();
-
-    console.log("Order Cleared");
+    console.log("Clearing the Order from Screen");
 
   });
-
-  return readyCard;
-}
+});
 
 // -------------------------------------------------------------------------------
