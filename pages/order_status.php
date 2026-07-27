@@ -54,40 +54,104 @@ if ($_SESSION['user_role'] != "desk") {
 
         <!-- Orders and their current states -->
         <section class="orders">
-          <!-- To be replaced with dyanmically created JS cards -->
-          <div class="order_row">
-            <div class="order_card">
-              <h3>Order #001</h3>
-              <p>Customer: John</p>
-              <p>3 Items</p>
-              <!-- Status: Pending/Cooking/Ready/Delivered/Cancelled -->
-              <p class="order_status">Status: </p>
-            </div>
+          <?php
 
-            <div class="order_options">
-              <button class="deliver_btn">DELIVER</button>
-              <button class="cancel_btn">CANCEL</button>
-            </div>
-          </div>
+          // Fetch 'MORE' Order Cards request count
+          if (isset($_GET['order'])) {
+            $order_count = $_GET['order'];
+          } else {
+            $order_count = 1;
+          }
 
-          <hr class="horizontal_lines">
+          // Calculate the limit
+          $limit = $order_count * 3;
 
-          <div class="order_row">
-            <div class="order_card">
-              <h3>Order #002</h3>
-              <p>Customer: Sarah</p>
-              <p>2 Items</p>
-              <!-- Status: Pending/Cooking/Ready/Delivered/Cancelled -->
-              <p class="order_status">Status:</p>
-            </div>
+          require "../database/configuration.php";
 
-            <div class="order_options">
-              <button class="deliver_btn">DELIVER</button>
-              <button class="cancel_btn">CANCEL</button>
-            </div>
-          </div>
+          // Query to fetch Orders
+          $sql = "SELECT * 
+                  FROM `orders`
+                  WHERE DATE(created_at)=CURDATE()
+                  ORDER BY created_at ASC
+                  LIMIT $limit;"; 
 
-          <hr class="horizontal_lines">
+          $result = mysqli_query($conn, $sql);
+          if (!$result) {
+            $error_message = "No Order was found.";
+          } 
+
+          if(mysqli_num_rows($result)==0) {
+            echo "<p class='empty_row'>No orders are pending.</p>";
+          }
+          
+          else {
+            while ($row = mysqli_fetch_array($result)) {
+              // Individual Order data
+              $order_id = $row['o_id'];
+              $order_status = $row['status'];
+              $created_at = date("H:i:s", strtotime($row['created_at']));
+              $updated_at = date("H:i:s", strtotime($row['updated_at']));
+              ?>
+              <div class="order_row">
+                <div class="order_card">
+                  <!-- Populating the row with Cooking Orders -->
+                  <h3><?php echo "Order #" . $order_id ?></h3>
+                  <?php
+
+                  // Query to fetch Order Items data
+                  $sql_items = "SELECT * 
+                                FROM `order_items` AS i
+                                JOIN `products` AS p
+                                ON i.p_id = p.p_id
+                                WHERE i.o_id = '$order_id';"; 
+
+                  $result_items = mysqli_query($conn, $sql_items);
+                  if (!$result_items) {
+                    $error_message = "No Order Items were found.";
+                  }
+
+                  while ($row = mysqli_fetch_array($result_items)) {
+                    // Individual Order Item data
+                    $item_name = $row['name'];
+                    $item_quantity = $row['quantity'];
+                    $item_price = $row['price'];
+            
+                    ?>
+                    <div class="order_items">
+                      <p><?php echo $item_name . ' x' . $item_quantity . '<br>'; ?></p>
+                      <p><?php echo 'Total Price: Rs ' . ($item_price * $item_quantity) . '<br>'; ?></p>
+                    </div>
+                  <?php
+                  }
+                  ?>
+                  
+                  <p class="order_status"><?php echo 'Status: ' . $order_status . '<br>'; ?></p>
+
+                </div>
+
+                <div class="order_options">
+                  <button class="deliver_btn">DELIVER</button>
+                  <button class="cancel_btn">CANCEL</button>
+                </div>
+
+              </div>
+
+              <hr class="horizontal_lines">
+
+            <?php
+            };
+
+            $nextOrder = $order_count + 1;
+            ?>     
+
+            <a 
+              class="more_btn" 
+              href="order_status.php?order=<?php echo $nextOrder; ?>"
+              >MORE</a>
+
+          <?php 
+          } // Close else {..}
+          ?>
 
         </section>
       </main>
