@@ -80,7 +80,7 @@ if ($_SESSION['user_role'] != "admin") {
           // Calculate the limit
           $limit = $page_count * 5;
 
-          require "../database/configuration.php";
+          require "../php/configuration.php";
 
           // Query to fetch Products
           $sql = "SELECT * FROM products
@@ -145,7 +145,7 @@ if ($_SESSION['user_role'] != "admin") {
             <label for="product_category">Category</label>
 
             <?php
-            require "../database/configuration.php";
+            require "../php/configuration.php";
 
             // Query to fetch Category of products
             $sql = "SELECT DISTINCT category 
@@ -187,7 +187,7 @@ if ($_SESSION['user_role'] != "admin") {
             <h1>Update Product</h1>
 
             <?php
-            require "../database/configuration.php";
+            require "../php/configuration.php";
 
             // Fetch Product ID
             if (!empty($_GET['update_product_id'])) {
@@ -234,7 +234,7 @@ if ($_SESSION['user_role'] != "admin") {
             <label for="product_category">Category</label>
 
             <?php
-            require "../database/configuration.php";
+            require "../php/configuration.php";
 
             // Query to fetch Category of products
             $sql = "SELECT DISTINCT category 
@@ -286,7 +286,7 @@ if ($_SESSION['user_role'] != "admin") {
             <h1>Delete Product</h1>
 
             <?php
-            require "../database/configuration.php";
+            require "../php/configuration.php";
 
             // Fetch Product ID
             if (!empty($_GET['delete_product_id'])) {

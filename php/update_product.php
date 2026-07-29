@@ -22,7 +22,7 @@ $productPrice = $_GET['product_price'];
 $productImage = $_GET['product_image'];
 $productCategory = $_GET['product_category'];
 
-require "../database/configuration.php";
+require "configuration.php";
 
 // Query to fetch product with given ID
 $sql = "UPDATE products

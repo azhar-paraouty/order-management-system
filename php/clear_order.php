@@ -21,7 +21,7 @@ $order = json_decode($orderJSON, true);
 // Extract the actual Order ID from the Order
 $orderID = substr((strstr($order, "#")), 1);
 
-require "../database/configuration.php";
+require "configuration.php";
 
 // Query to Check if ORDER with given ID has already been delivered/cancelled
 $sql = "SELECT status

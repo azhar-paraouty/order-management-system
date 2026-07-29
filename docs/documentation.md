@@ -381,6 +381,19 @@ This section tracks the evolution of the `Island Bites` project. It presents the
 
 ---
 
+## **29/07/2026** - README Documentation
+
+### Completed:
+* Upated README.md to reflect Version 1's end.
+* Added index.php to redirect to root.
+* Re-factored `/island_bites.sql` to facilitate Database imports.
+* Moved wireframes to `/images`
+* Moved configuration.php to `/php`
+
+> The project is now more intuitive to follow. Other developers can now understand what the project does exactly by going through the README.md and interpreting the visuals, with supported text.
+
+---
+
 # ✨ 6. FUTURE WORKS
 - Customer payment is handled.
 - Component-based frontend. (Use React)

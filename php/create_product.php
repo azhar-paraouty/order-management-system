@@ -14,7 +14,7 @@ if ($_SESSION['user_role'] != "admin") {
 
 echo "Processing Product Creation";
 
-require "../database/configuration.php";
+require "configuration.php";
 
 // Fetch NEW Product Data
 $product_name = $_GET['product_name'];

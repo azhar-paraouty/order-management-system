@@ -23,7 +23,7 @@ if (isset($_GET['order'])) {
   $orderJSON = $_GET['order'];
   $order = json_decode($orderJSON, true);
 
-  require "../database/configuration.php";
+  require "configuration.php";
 
   // Query to populate 'orders' table
   $sql_insert = "INSERT INTO orders (status)
@@ -51,7 +51,7 @@ if (isset($_GET['order'])) {
     $item_size = $item['size'];
     $item_addOns = $item['addOns'];
     
-    require "../database/configuration.php";
+    require "configuration.php";
 
     // Query to populate 'order_items' table
     $sql = "INSERT INTO order_items (o_id, p_id, quantity, size, addons)

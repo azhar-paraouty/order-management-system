@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $uname = $_POST['username'];
   $pword = $_POST['password'];
 
-  require "../database/configuration.php";
+  require "../php/configuration.php";
 
   // Query to fetch Users
   $sql = "SELECT * FROM users 

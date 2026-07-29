@@ -66,7 +66,7 @@ if ($_SESSION['user_role'] != "desk") {
           // Calculate the limit
           $limit = $order_count * 3;
 
-          require "../database/configuration.php";
+          require "../php/configuration.php";
 
           // Query to fetch Orders
           $sql = "SELECT * 

@@ -31,7 +31,7 @@ if ($_SESSION['user_role'] != "desk") {
           Orders Ready for Delivery
           <?php
 
-          require "../database/configuration.php";
+          require "../php/configuration.php";
 
           // Query to fetch Completed Orders (awaiting Delivery)
           $sql = "SELECT * 
@@ -113,7 +113,7 @@ if ($_SESSION['user_role'] != "desk") {
           // Calculate the new limit
           $limit = $page_count * 5;
 
-          require "../database/configuration.php";
+          require "../php/configuration.php";
 
           // Query to fetch Products
           $sql = "SELECT * FROM products

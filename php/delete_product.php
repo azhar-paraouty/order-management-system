@@ -17,7 +17,7 @@ echo "Processing Product Deletion";
 // Fetch Product ID
 $productID = $_GET['delete_product_id'];
 
-require "../database/configuration.php";
+require "configuration.php";
 
 // Query to DELETE product with given ID
 $sql = "DELETE FROM products

@@ -1,399 +1,187 @@
-# Island Bites — Order Management System
+# ISLAND BITES — RESTAURANT ORDER MANAGEMENT SYSTEM
 
-## 📌 Project Overview
+I am building a Full-Stack Order Management System for a small fictional restaurant, using:
 
-This project documents the early analysis and planning stages of a fictional restaurant order management system called **Island Bites**.
+| Technology | Purpose                  |
+|------------|--------------------------|
+| HTML       | Structure                |
+| CSS        | User Interface           |
+| JavaScript | Client-side interactions |
+| PHP        | Server-side processing   |
+| MySQL      | Data persistence         |
 
-The goal of the project is not to immediately jump into coding, but rather to follow a more structured and realistic system development approach by progressing through:
+The project demonstrates a complete overview of how the restaurant operates. From Staff creating the order, to kitchen preparation, and finally order delivery, while enforcing Business rules throughout.
 
-- Business analysis
-- Requirements gathering
-- Wireframing
-- Frontend prototyping
-- Backend integration (later phase)
+While the project is under active development, an initial stable version has been completely implemented. Version 2 will extend on the existing foundation, while enhancing the functionality and aesthetics.
 
-This repository is intentionally being developed progressively to:
-- track the evolution of the system over time,
-- document design decisions,
-- demonstrate structured problem-solving,
-- and showcase genuine technical growth rather than rushed implementation.
+## 📑 Contents
+
+- [Application Walkthrough](#application-walkthrough)
+- [System Features](#system-features)
+- [Directory Structure](#directory-structure)
+- [Installation Guide](#installation-guide)
+- [Documentation](#documentation)
+
+--- 
+
+# APPLICATION WALKTHROUGH
+
+This Section demonstrates the operational workflow of the application, alongside some useful annotated screenshots.
+
+## 1. Login Page
+
+Staff members authenticate themselves by logging into the System. Each role, given separate duties, can only access the page that is relevant to their responsibilities.
+
+![Login Page](images/annotated_pages/login_annotated.png)
+
+## 2. Order Dashboard Page
+
+Once authenticated by the System, the Desk Staff can create Customer orders, which are sent to the Kitchen Queue. The Staff can also review the order summary and also view which orders are ready to be delivered.
+
+![Order Dashboard Page](images/annotated_pages/order_dashboard_annotated.png)
+
+## 3. Kitchen Queue Page
+
+Kitchen Staff process incoming orders and can update each order from Pending → Cooking → Ready.
+
+![Kitchen Queue Page](images/annotated_pages/kitchen_queue_annotated.png)
+
+## 4. Order Status Page
+
+The Desk Staff tracks the progress of each order and can either Deliver to Customer or Cancel them, whenever appropriate.
+
+![Order Status Page](images/annotated_pages/order_status_annotated.png)
+
+## 5. Admin Page
+
+Administrators manage restaurant products through Create, Read, Update and Delete (CRUD) operations, reflecting changes in the MySQL database.
+
+![Admin Page](images/annotated_pages/admin_annotated.png)
+
+**_For the original page screenshots without annotations:_**
+
+- **[Login Page](images/full_pages/login_page.png)**
+- **[Order Dashboard Page](images/full_pages/order_dashboard_page.png)**
+- **[Kitchen Queue Page](images/full_pages/kitchen_queue_page.png)**
+- **[Order Status Page](images/full_pages/order_status_page.png)**
+- **[Admin Page](images/full_pages/admin_page.png)**
 
 ---
 
-# PHASE 1 — BUSINESS & SYSTEM ANALYSIS
+# SYSTEM FEATURES
+
+### Authentication
+- Role-based login
+- Protected pages
+- Session management
+- Password hashing
+
+### Product Management
+- View products
+- Create products
+- Update products
+- Delete products
+- Product pagination
+
+### Order Management
+- Product selection
+- Quantity adjustment
+- Order item customisation
+- Order summary
+- Total order cost
+
+### Kitchen Workflow
+- Pending queue
+- Cooking queue
+- Ready queue
+- Order pagination
+
+### Order Tracking
+- Live status updates
+- Deliver orders
+- Cancel orders
+- Business rule enforcement
+
+---
+
+# DIRECTORY STRUCTURE
 
-## Goal
-
-Understand the business before designing screens.
-
-# Step 1 — Business Overview
-
-## Purpose
-
-Defining:
-- what the business does,
-- who uses the system,
-- what operational problems exist.
-
-
-## Business Name
-
-**Island Bites**
-
-
-## Business Type
-
-FICTIONAL Small takeaway restaurant, located in Port Louis
-
-## Team Structure
-
-- Owner
-- Front Desk Staff
-- Kitchen Staff
-
-## Current Problems
-
-- paper orders – not easy to keep track
-- lost/damaged receipts – customers have already paid but waiting for delivery by showing their ticket
-- unclear cooking queue – not knowing which client has priority
-- delayed communication between desk staff and kitchen staff
-- Overall, business lacks visibility and everything seems disorganised and unclear
-
-## System Goal
-
-Create a digital order workflow tracking system to integrate operations at Island Bites.
-
-# Step 2 — User Roles & Responsibilities
-
-## Purpose
-
-Defining:
-- WHO uses the system,
-- WHAT they are allowed to do.
-
-This becomes critical later for:
-- login systems,
-- permissions,
-- navigation,
-- dashboards.
-
-## Front Desk
-
-### Can:
-- create orders
-- view order queue
-- mark delivered
-- search orders
-
-### Cannot:
-- manage staff
-- access admin settings
-
-## Kitchen Staff
-
-### Can:
-- view pending orders
-- update cooking status (example: queued order → started cooking → finished cooking)
-- mark ready
-
-### Cannot:
-- delete orders
-- access reports
-
-## Admin
-
-### Can:
-- manage menu items, prices and products sold
-- manage categories
-- monitor operations
-
-# Step 3 — Functional Requirements
-
-## Purpose
-
-Defining:
-
-> What the system MUST do.
-
-## Product Management
-
-System must:
-- display menu items
-- organize products by category
-- display prices
-- display availability
-- allow admin to manage products
-
-## Order Management
-
-- System must allow Front Desk Staff to create orders from a dashboard
-- System must generate unique order ID
-- System must timestamp orders for queuing purposes
-
-## Queue Management
-
-- System must display pending orders to the Kitchen Staff
-- System must separate orders by status
-
-## Status Management
-
-- System must allow status updates
-- System must prevent invalid transitions
-
-## Search & Filtering
-
-- System must allow searching by order number
-- System must allow searching for products (both Customers and Front Desk staff)
-
-## Authentication
-
-- System must allow secure login/logout
-
-# Step 4 — Non-Functional Requirements
-
-## Purpose
-
-Defining:
-
-> HOW the system should behave.
-
-## Usability
-
-- interface must be easy to use
-- minimal clicks required
-
-## Performance
-
-- pages should load quickly
-
-## Reliability
-
-- orders should not disappear after refresh
-
-## Security
-
-- only authorized users can access admin pages
-
-## Maintainability
-
-- code structure should remain organized
-
-# Step 5 — Core Workflows
-
-## Purpose
-
-Understanding:
-- operational flow,
-- business process,
-- state changes.
-
-## Order Workflow
-
-```text
-Customer places order
-    ↓
-Front desk creates order
-    ↓
-Order enters pending queue
-    ↓
-Kitchen marks cooking
-    ↓
-Kitchen marks ready
-    ↓
-Front desk marks delivered
-````
-
-# Step 6 — System States
-
-## Purpose
-
-Defining:
-
-> What states entities can exist in.
-
-## Order States
-
-* Pending
-* Cooking
-* Ready
-* Delivered
-* Cancelled
-
-## Transition Rules (need to be followed)
-
-```text
-Pending → Cooking
-Cooking → Ready
-Ready → Delivered
 ```
+island_bites/
 
-# Step 7 — Page Inventory
-
-## Purpose
-
-Identifying all the system screens to help prevent random page creation later.
-
-## Public Pages
-
-* index.html
-* menu.html
-* about.html
-
-## Staff Pages
-
-* dashboard.html
-* orders.html
-* kitchen_queue.html
-
-## Admin Pages
-
-* admin_dashboard.html (Business Overview)
-* manage_menu.html (CRUD Operations)
-
-# Step 8 — Navigation Flow
-
-## Purpose
-
-Understanding:
-
-* how users move,
-* where actions lead,
-* page relationships.
-
-## Example Navigation
-
-```text
-Dashboard
-    ↓
-Create Order
-    ↓
-Pending Queue
-    ↓
-Kitchen Queue
-    ↓
-Completed Orders
-```
-
-# Step 9 — Wireframes
-
-The system will next move into wireframing and visual planning.
-
-This includes:
-
-* layout,
-* sections,
-* positioning,
-* navigation,
-* usability.
-
-## Focus Areas
-
-* Header
-* Navigation
-* Main Content
-* Sidebar?
-* Buttons
-
-# Step 10 — Folder & Architecture Planning
-
-## Planning the Structure
-
-```text
-project/
-│
-├── index.html
-├── orders.html
-├── kitchen.html
-│
 ├── css/
-│   └── style.css
-│
-├── js/
-│   └── app.js
-│
+├── database/
+│     └── island_bites.sql
+├── docs/
+│     └── documentation.md
 ├── images/
-│
-└── wireframes/
+│     └── annotated_pages
+│     └── full_pages
+│     └── products
+│     └── wireframes
+├── js/
+├── pages/
+├── php/         
+│     └── configuration.php
+│     └── ... # backend processing pages
+├── index.php
+├── README.md
 ```
 
-Later:
+---
 
-* PHP integration
-* database integration
-* API structure
-* additional folders/files
+# INSTALLATION GUIDE
+
+### Steps:
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/azhar-paraouty/order-management-system.git
+```
+
+2. Move or Copy the cloned repository into your web server root directory (e.g. `C:/xampp/htdocs/`).
+
+3. Start Apache and MySQL.
+
+4. Import `database/island_bites.sql` into phpMyAdmin.
+
+5. Open the project in your browser:
+
+```
+http://localhost/order-management-system/
+```
+
+### Default Accounts:
+
+| Role          | Username | Password |
+|---------------|----------|----------|
+| Admin         | Admin    | admin123 |
+| Desk Staff    | John     | john123  |
+| Kitchen Staff | Jane     | jane123  |
+
+> _Note: These accounts are provided for demonstration purposes_.
 
 ---
 
-# PHASE 2 — FRONTEND PROTOTYPE
+# DOCUMENTATION
 
-## Goal
+_**Detailed software documentation is available in [docs/documentation.md](docs/documentation.md)**_
 
-Create:
+It includes
 
-* screens,
-* layout,
-* interactions,
-* navigation,
-* UI flow,
-
-WITHOUT backend yet.
-
-## Frontend Technologies
-
-* HTML
-* CSS
-* JavaScript
-
-## IMPORTANT
-
-The frontend now is a simulated system.
-
-Meaning:
-
-* fake data,
-* temporary arrays,
-* hardcoded menu items,
-* fake order queue.
+- Version 1 requirements
+- Version 2 planning
+- Design decisions
+- Development log
+- Future works
 
 ---
 
-# PHASE 3 — BACKEND INTEGRATION
+## 👤 Author
 
-Only AFTER frontend stabilizes.
+M.A. Azhar Paraouty
 
-This is where:
+BSc (Hons) Information Systems | University of Mauritius
 
-* PHP,
-* MySQL,
-* sessions,
-* CRUD,
-* authentication,
-* AJAX
-
-become meaningful.
-
-# 📈 Development Philosophy
-
-This project is intentionally being built progressively rather than rushed into full implementation immediately.
-
-The objective is to:
-
-* understand business workflows,
-* improve system thinking,
-* strengthen frontend foundations,
-* and later integrate backend architecture in a structured way.
-
-The repository will continue evolving as:
-
-* requirements become refined,
-* wireframes are created,
-* frontend prototypes are developed,
-* and backend functionality is integrated.
-
-
-# 👤 Author
-
-Azhar |
-Year 3 Information Systems Student |
-Mauritius
+Interested in Data Analytics, Automation and Software Development.

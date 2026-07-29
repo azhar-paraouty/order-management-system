@@ -68,7 +68,7 @@ if ($_SESSION['user_role'] != "kitchen") {
             // Calculate the limit
             $limit = $order_count * 3;
 
-            require "../database/configuration.php";
+            require "../php/configuration.php";
 
             // Query to fetch Orders currently in 'pending' state
             $sql = "SELECT * 
@@ -169,7 +169,7 @@ if ($_SESSION['user_role'] != "kitchen") {
             // Calculate the limit
             $limit = $order_count * 3;
 
-            require "../database/configuration.php";
+            require "../php/configuration.php";
 
             // Query to fetch Orders currently in 'cooking' state
             $sql = "SELECT * 
@@ -269,7 +269,7 @@ if ($_SESSION['user_role'] != "kitchen") {
             // Calculate the limit
             $limit = $order_count * 3;
 
-            require "../database/configuration.php";
+            require "../php/configuration.php";
 
             // Query to fetch Orders currently in 'ready' state
             $sql = "SELECT * 
